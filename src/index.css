@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+@theme {
+    --color-primary-50: #f0f9f2;
+    --color-primary-100: #dcf2e1;
+    --color-primary-200: #bee5c8;
+    --color-primary-300: #93d1a6;
+    --color-primary-400: #62b57e;
+    --color-primary-500: #46a365;
+    --color-primary-600: #238e48;
+    --color-primary-700: #1c723a;
+    --color-primary-800: #195b31;
+    --color-primary-900: #154b2a;
+}
+
+@layer components {
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 1rem;
+        font-weight: 700;
+        color: white;
+        background: linear-gradient(
+            135deg,
+            var(--color-primary-600),
+            var(--color-primary-700)
+        );
+        box-shadow:
+            0 4px 6px -1px var(--color-primary-100),
+            0 2px 4px -1px var(--color-primary-100);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow:
+            0 10px 15px -3px var(--color-primary-200),
+            0 4px 6px -2px var(--color-primary-200);
+    }
+
+    .btn-primary:active {
+        transform: translateY(0);
+        scale: 0.98;
+    }
+
+    .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 1rem;
+        font-weight: 700;
+        color: var(--color-primary-600);
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(8px);
+        border: 2px solid var(--color-primary-600);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+        background: var(--color-primary-600);
+        color: white;
+        transform: translateY(-1px);
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        border-radius: 1.5rem;
+    }
+
+    .nav-link {
+        position: relative;
+        color: #4b5563; /* text-gray-600 */
+        transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+        color: var(--color-primary-600);
+    }
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-primary-600);
+        transition: width 0.2s;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+}
